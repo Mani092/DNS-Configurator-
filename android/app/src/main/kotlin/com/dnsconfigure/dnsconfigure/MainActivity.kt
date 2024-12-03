@@ -20,7 +20,7 @@ class MainActivity : FlutterActivity() {
         MethodChannel(getFlutterEngine()!!.dartExecutor.binaryMessenger, "com.example.dnsconfigure/dns")
             .setMethodCallHandler { call, result ->
                 if (call.method == "changeDNS") {
-                    val dnsAddress = call.argument<String>("dns")
+                        val dnsAddress = call.argument<String>("dns")
                     if (dnsAddress != null) {
                         changeDNS(dnsAddress)
                         result.success("DNS updated to $dnsAddress")
